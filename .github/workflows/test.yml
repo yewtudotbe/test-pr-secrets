@@ -1,0 +1,12 @@
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: test secret
+        run: |
+          echo ${{secrets.MYSECRET}}
